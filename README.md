@@ -4,12 +4,22 @@ This is a PyTorch implementation of [The Option Keyboard:
 Combining Skills in Reinforcement Learning](https://papers.nips.cc/paper/9463-the-option-keyboard-combining-skills-in-reinforcement-learning)
 (NeurIPS 2019).
 
-## Requirements
+## Setup
+
+The following packages are required:
 - Python 3.5+
 - PyTorch (>=1.0.0 with CUDA version 10.0)
 - Tensorboard
 - NumPy (1.15.4, may work for others)
 - OpenAI Gym (>=0.17.1)
+
+To set up the repository, run the following commands:
+
+```
+git clone https://github.com/aditimavalankar/option-keyboard.git
+cd option-keyboard
+pip install -e .
+```
 
 ## Environment
 This implementation uses the Foraging World environment discussed in the
@@ -86,14 +96,14 @@ discount factor, etc., as well as pretrained models, can be specified as
 command line arguments. To see the full list of command line arguments, run
 
 ```
-python3 main.py --help
+python main.py --help
 ```
 
 In order to train the baseline DQN, run the following command from within the
 `dqn` directory:
 
 ```
-python3 main.py --exp-name dqn
+python main.py --exp-name dqn
 ```
 
 In order to specify hyperparameters, or resume training from a pretrained model,
@@ -115,7 +125,7 @@ and visualize the results, run the following command from within the `scripts`
 directory:
 
 ```
-python3 test_ok.py --exp-name OK --saved-models /path/to/best/model --visualize --w 1 -1
+python test_ok.py --exp-name OK --saved-models /path/to/best/model --visualize --w 1 -1
 ```
 
 ## Results
