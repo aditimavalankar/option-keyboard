@@ -1,10 +1,10 @@
 import torch
-import numpy as np
-from core.value_function import ValueFunction
-from core.utils import update, get_cumulant
-from test import test_learning_options
-from tensorboardX import SummaryWriter
 import os
+import numpy as np
+from option_keyboard.core.value_function import ValueFunction
+from option_keyboard.core.utils import update, get_cumulant
+from option_keyboard.option_keyboard.test import test_learning_options
+from tensorboardX import SummaryWriter
 
 
 def reset(s, d, device):

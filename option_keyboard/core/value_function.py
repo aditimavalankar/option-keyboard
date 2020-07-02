@@ -1,4 +1,4 @@
-from core.networks import MlpDiscrete
+from option_keyboard.core.networks import MlpDiscrete
 import torch
 from torch.optim import Adam
 

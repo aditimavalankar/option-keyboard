@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from core.networks import MlpDiscrete
+from option_keyboard.core.networks import MlpDiscrete
 from torch.optim import Adam
 from tensorboardX import SummaryWriter
 import os

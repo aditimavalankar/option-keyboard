@@ -1,15 +1,15 @@
-from core.utils import set_global_seed
-from ok import option_keyboard
-from core.value_function import ValueFunction
+import option_keyboard.envs
+from option_keyboard.core.utils import set_global_seed
+from option_keyboard.option_keyboard.ok import option_keyboard
+from option_keyboard.core.value_function import ValueFunction
 import argparse
 import gym
-import envs
 import torch
 import numpy as np
 import os
 import pickle
 from itertools import product
-from core.networks import MlpDiscrete
+from option_keyboard.core.networks import MlpDiscrete
 
 
 parser = argparse.ArgumentParser('test_ok')

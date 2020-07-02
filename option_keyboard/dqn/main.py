@@ -1,8 +1,8 @@
-from core.utils import set_global_seed, create_log_files
+from option_keyboard.core.utils import set_global_seed, create_log_files
 from dqn import dqn
 import argparse
 import gym
-import envs
+import option_keyboard.envs
 import torch
 
 

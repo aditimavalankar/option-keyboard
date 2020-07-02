@@ -1,4 +1,4 @@
-from ok import option_keyboard
+from option_keyboard.option_keyboard.ok import option_keyboard
 import torch
 import pickle
 import numpy as np

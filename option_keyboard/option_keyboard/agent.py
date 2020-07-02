@@ -1,10 +1,10 @@
 import torch
 import numpy as np
-from ok import option_keyboard
-from core.networks import MlpDiscrete
+from option_keyboard.option_keyboard.ok import option_keyboard
+from option_keyboard.core.networks import MlpDiscrete
 from torch.optim import Adam
 from tensorboardX import SummaryWriter
-from test import test_agent
+from option_keyboard.option_keyboard.test import test_agent
 import os
 
 

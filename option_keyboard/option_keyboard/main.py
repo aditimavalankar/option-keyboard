@@ -1,10 +1,10 @@
-from agent import keyboard_player
-from learn import learn_options
-from core.utils import set_global_seed, create_log_files
+from option_keyboard.option_keyboard.agent import keyboard_player
+from option_keyboard.option_keyboard.learn import learn_options
+from option_keyboard.core.utils import set_global_seed, create_log_files
 import argparse
 import gym
 from itertools import product
-import envs
+import option_keyboard.envs
 import torch
 import numpy as np
 import os

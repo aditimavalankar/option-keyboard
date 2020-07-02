@@ -1,13 +1,14 @@
-from core.utils import set_global_seed
-from ok import option_keyboard
-from core.value_function import ValueFunction
+import option_keyboard.envs
+from option_keyboard.option_keyboard.ok import option_keyboard
+from option_keyboard.core.utils import set_global_seed
+from option_keyboard.core.value_function import ValueFunction
 import argparse
 import gym
-import envs
 import torch
 import numpy as np
 import os
 import pickle
+
 
 parser = argparse.ArgumentParser('test_ok')
 parser.add_argument('-e', '--env-name', default='ForagingWorld-v0',

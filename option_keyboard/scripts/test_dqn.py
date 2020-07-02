@@ -1,8 +1,8 @@
-from core.utils import set_global_seed
-from core.networks import MlpDiscrete
+from option_keyboard.core.utils import set_global_seed
+from option_keyboard.core.networks import MlpDiscrete
 import argparse
 import gym
-import envs
+import option_keyboard.envs
 import torch
 import numpy as np
 import os
@@ -30,8 +30,6 @@ def main():
     env = gym.make(args.env_name)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     set_global_seed(args.seed)
-
-    env.set_learning_options([-1, 1])
 
     Q = MlpDiscrete(input_dim=env.observation_space.shape[0],
                     output_dim=env.action_space.n,

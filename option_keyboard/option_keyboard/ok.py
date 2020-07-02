@@ -1,5 +1,5 @@
 import torch
-from core.utils import update
+from option_keyboard.core.utils import update
 
 
 def option_keyboard(env, s, w, Q, gamma, n_steps, max_ep_steps, device,
