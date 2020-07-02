@@ -4,15 +4,15 @@ This is a PyTorch implementation of [The Option Keyboard:
 Combining Skills in Reinforcement Learning](https://papers.nips.cc/paper/9463-the-option-keyboard-combining-skills-in-reinforcement-learning)
 (NeurIPS 2019).
 
-### Requirements
+## Requirements
 - Python 3.5+
 - PyTorch (>=1.0.0 with CUDA version 10.0)
 - Tensorboard
 - NumPy (1.15.4, may work for others)
 - OpenAI Gym (>=0.17.1)
 
-### Environment
-In this implementation, we use the Foraging World environment discussed in the
+## Environment
+This implementation uses the Foraging World environment discussed in the
 paper. 
 
 - State space:
@@ -35,17 +35,18 @@ following proportions:
 
 <img src="visualizations/foraging_world.gif" width="400">
 
-### Task Description
+## Task Description
 
 The agent has to navigate through the grid and collect food items, keeping its
 nutrients within a desirable range. The reward that the agent gets on consuming
 a food item weighs the nutrients in the food item by their *desirability*. The
 difficulty of the task can be adjusted by varying the desirability of the
 nutrients the agent possesses at any given time step. The paper discusses two
-scenarios with different desirability functions. We show results on both these
-scenarios. More details on the desirability functions can be found in the paper.
+scenarios with different desirability functions. Results for both scenarios are
+included in this repository. More details on the desirability functions can be
+found in the paper.
 
-### Algorithm
+## Algorithm
 
 The algorithm involves 2 main steps:
 
@@ -53,18 +54,18 @@ The algorithm involves 2 main steps:
    - The keyboard consists of a set of value functions that give the Q-values
    of all options over all cumulants.
    - Any Q-learning algorithm can be used to learn these value functions; here,
-   we use DQN.
+   DQN is used.
 2. Learning the player using GPE and GPI over the learnt options
    - Once we have a set of learnt value functions over the given cumulants, we
    can combine them by using GPE and GPI to generate novel options in a
    zero-shot manner.
    - The agent is then left with the task of learning the weights over these
-   cumulants to be passed to the Option Keyboard. We use DQN to learn the
+   cumulants to be passed to the Option Keyboard. DQN is used to learn the
    Q-function over the different weight vectors.
 
-We include the code for OK as well as a DQN baseline for comparison.
+Along with OK, a DQN baseline is also implemented for comparison.
 
-### Training
+## Training
 
 In order to learn the keyboard *and* the player from scratch with default
 parameters, run the following command from within the `option_keyboard` directory:
@@ -98,7 +99,7 @@ python3 main.py --exp-name dqn
 In order to specify hyperparameters, or resume training from a pretrained model,
 please refer to the command line arguments for DQN.
 
-### Testing
+## Testing
 Each component of the algorithm can be tested using the scripts in the
 `scripts` directory:
 
@@ -117,20 +118,20 @@ directory:
 python3 test_ok.py --exp-name OK --saved-models /path/to/best/model --visualize --w 1 -1
 ```
 
-### Results
+## Results
 
 This section contains results for both parts of the algorithm listed above:
 learning the keyboard and learning the player.
 
 #### Learning the Keyboard
 
-When learning the keyboard, we do not use the desirability function; instead we
+When learning the keyboard, the desirability function is not used; instead we
 define cumulants for each option (for more details, please refer to the paper).
-We record the performances of the keyboard for different values of *w* in order
-to see the quality of options learnt. Although the original work trains the
-keyboard for 5 million time steps, they report that using ~10% of those samples
-would suffice in order to learn a good keyboard. So, we train the keyboard for
-0.5 million time steps. 
+The returns obtained for different values of *w* can be used to see the quality
+of options learnt. Although the original work trains the keyboard for 5 million
+time steps, they report that using ~10% of those samples would suffice in order
+to learn a good keyboard. Thus, the results reported here are obtained after
+training the keyboard for 0.5 million time steps. 
 
 The following plots indicate the reward that the agent accumulants when
 *w = (1, 1), w = (1, -1),* and *w = (-1, 1)* respectively.
@@ -139,18 +140,18 @@ The following plots indicate the reward that the agent accumulants when
 
 #### Learning the Player
 
-Once we have a keyboard, we apply GPE and GPI to generate novel options for
+Once we have a keyboard, we can apply GPE and GPI to generate novel options for
 different weight vectors *w*. The player learns the value function over these
 weight vectors so that the agent can navigate through the grid maintaining
-appropriate quantities of its nutrients. We show below the learning curves of the
-player for scenarios 1 and 2. We also show the DQN learning curves
-for comparison. 
+appropriate quantities of its nutrients. The following plots show the learning
+curves of the player for scenarios 1 and 2. DQN learning curves are also plotted
+for comparison.
 
 In both scenarios, OK (red) outperforms DQN (blue).
 
 <img src="visualizations/episode_returns_Agent_scen1.svg" width="350"/><img src="visualizations/episode_returns_Agent_scen2.svg" width="350"/>
 
-### Citation
+## Citation
 If you use this work, please consider citing the following paper:
 ```
 @incollection{NIPS2019_9463,
@@ -165,7 +166,7 @@ url = {http://papers.nips.cc/paper/9463-the-option-keyboard-combining-skills-in-
 }
 ```
 
-### Acknowledgements
+## Acknowledgements
 Many thanks to the authors, especially Shaobo Hou, for all the help in
 reproducing the results and providing clarifications on the environment
 specifications.
