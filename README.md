@@ -22,7 +22,7 @@ pip install -e .
 ```
 
 ## Environment
-This implementation uses the Foraging World environment discussed in the
+This repository implements the Foraging World environment discussed in the
 paper. 
 
 - State space:
